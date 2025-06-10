@@ -1,0 +1,5 @@
+aiogram==3.4.1
+pydub
+yt_dlp
+spotipy
+shazamio
