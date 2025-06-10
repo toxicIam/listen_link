@@ -1,5 +1,3 @@
-aiogram==3.4.1
-pydub
-yt_dlp
-spotipy
-shazamio
+aiogram==3.4
+shazamio==0.4.2
+spotipy==2.22.1
