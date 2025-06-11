@@ -4,7 +4,7 @@ from spotipy.oauth2 import SpotifyOAuth
 # 🔐 Настройки авторизации
 SPOTIFY_CLIENT_ID = "f041013bac3d49d8a4e98c4a8a0b82e7"
 SPOTIFY_CLIENT_SECRET = "4c0b9eb89ee64394a6aad4421b363c66"
-SPOTIFY_REDIRECT_URI = "http://127.0.0.1:8888/callback"
+SPOTIFY_REDIRECT_URI = "https://listen-link.onrender.com/"
 SPOTIFY_PLAYLIST_ID = "2KZDetQ5mkJxtizweC1f33"
 
 # ⚠️ Важно: у пользователя должен быть public playlist и разрешение на `playlist-modify-public`
