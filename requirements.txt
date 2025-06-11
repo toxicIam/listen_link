@@ -1,6 +1,6 @@
-aiogram==3.2.0
-pydub
-yt-dlp
-shazamio
-spotipy
-requests
+aiogram==3.0.0b7
+pydub==0.25.1
+yt-dlp==2024.4.9
+shazamio==0.4.2
+spotipy==2.23.0
+requests==2.31.0
