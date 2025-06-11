@@ -19,14 +19,20 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
 ))
 
 
-def search_track(title: str, artist: str) -> str | None:
+def search_tracks(title: str, artist: str, limit: int = 5) -> list[dict]:
     query = f"{title} {artist}"
-    results = sp.search(q=query, type="track", limit=1)
-
+    results = sp.search(q=query, type="track", limit=limit)
     tracks = results.get("tracks", {}).get("items", [])
-    if tracks:
-        return tracks[0]["id"]  # Spotify URI можно и как 'spotify:track:{id}'
-    return None
+
+    return [
+        {
+            "id": t["id"],
+            "name": t["name"],
+            "artist": ", ".join([a["name"] for a in t["artists"]]),
+            "url": t["external_urls"]["spotify"]
+        }
+        for t in tracks
+    ]
 
 
 def add_track_to_playlist(track_id: str) -> bool:
