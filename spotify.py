@@ -10,13 +10,13 @@ SPOTIFY_PLAYLIST_ID = "2KZDetQ5mkJxtizweC1f33"
 # ⚠️ Важно: у пользователя должен быть public playlist и разрешение на `playlist-modify-public`
 scope = "playlist-modify-public playlist-read-private"
 
-# 🔄 Авторизация
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id=SPOTIFY_CLIENT_ID,
     client_secret=SPOTIFY_CLIENT_SECRET,
     redirect_uri=SPOTIFY_REDIRECT_URI,
     scope=scope
 ))
+
 
 
 def search_tracks(title: str, artist: str, limit: int = 5) -> list[dict]:
