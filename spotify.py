@@ -1,25 +1,25 @@
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-import json
 
-# 🔐 Настройки авторизации
+# 🔐 Настройки
 SPOTIFY_CLIENT_ID = "f041013bac3d49d8a4e98c4a8a0b82e7"
 SPOTIFY_CLIENT_SECRET = "4c0b9eb89ee64394a6aad4421b363c66"
 SPOTIFY_REDIRECT_URI = "https://listen_link.railway.app/"
 SPOTIFY_PLAYLIST_ID = "2KZDetQ5mkJxtizweC1f33"
 
-# 🎧 Область доступа (scope)
-scope = "playlist-modify-public"
+scope = "playlist-modify-public playlist-read-private"
 
-# ✅ Создание авторизованного клиента Spotify
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
+auth_manager = SpotifyOAuth(
     client_id=SPOTIFY_CLIENT_ID,
     client_secret=SPOTIFY_CLIENT_SECRET,
     redirect_uri=SPOTIFY_REDIRECT_URI,
-    scope=scope
-))
+    scope=scope,
+    cache_path="token.json"
+)
 
-sp = spotipy.Spotify(auth='BQBWzJ8ScdW2lNnPS0PDFla-24CzEz2tqIwjwCXBYq-yLtHlpQ9vC27RQ5sBGOf5Zw4eeJU5pJ5S1dhcbW0dl1Mp28Ci5AcKTuvEG5a_9MJcHZZcT2daJy6USdaKkCnyh-thektKy7cjRSiaI7wsKgE9ASMBMtN9Z9NfzWXONeMgJJhuCC-XjJVK0ss-s5eug-7naVBFVOBkh_DZtjt_-Y98UnqhR_fn1ke2CvHhLsiSEpmc5uP3HI5ibSzmPqChJTeALxcXyVutfdfxnsGCRM5o')
+sp = spotipy.Spotify(auth_manager=auth_manager)
+print("✅ Токен сохранён в token.json")
+
 
 def search_tracks(title: str, artist: str, limit: int = 5) -> list[dict]:
     query = f"{title} {artist}"
