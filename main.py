@@ -162,8 +162,15 @@ async def handle_track_choice(callback: CallbackQuery):
 
     del pending_choices[user_id]
 
+async def background_task():
+    while True:
+        print("Background task runs...")
+        await asyncio.sleep(3600)  # каждую 1 час
+
 async def main():
+    asyncio.create_task(background_task())
     await dp.start_polling(bot)
+
 
 
 if __name__ == "__main__":

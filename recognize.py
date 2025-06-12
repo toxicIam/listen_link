@@ -74,5 +74,5 @@ def download_audio_snippet(url: str, duration_sec=15) -> str:
 
 async def recognize_with_shazam(file_path: str) -> dict:
     shazam = Shazam()
-    out = await shazam.recognize_song(file_path)
+    out = await shazam.recognize(file_path)
     return out
