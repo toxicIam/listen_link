@@ -10,7 +10,7 @@ SPOTIFY_PLAYLIST_ID = "2KZDetQ5mkJxtizweC1f33"
 # ⚠️ Важно: у пользователя должен быть public playlist и разрешение на `playlist-modify-public`
 scope = "playlist-modify-public playlist-read-private"
 
-sp_oauth = SpotifyOAuth(
+sp = SpotifyOAuth(
     client_id=SPOTIFY_CLIENT_ID,
     client_secret=SPOTIFY_CLIENT_SECRET,
     redirect_uri="https://yourapp.railway.app/callback",
